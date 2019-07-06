@@ -1,0 +1,222 @@
+﻿@model IEnumerable<SGART.Models.Empresa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $('#linkEmpreas').addClass("active");
+</script>
+<div class="card ">
+    <div class="card-body">
+        <h5 class="pb-2 text-primary font-weight-bold d-inline-block col-11">Gestión Tabla Maestra Empresas</h5>
+        <button type="button" class="btn btn-icons btn-rounded btn-primary col-1 float-right" data-toggle="modal" data-target="#modal-empresa" data-backdrop="static"
+                data-keyboard="false">
+            <i class="mdi mdi-plus"></i>
+        </button>
+        <div class="row align-items-center">
+
+
+
+
+            <div class="col-12 table-responsive mt-4">
+                <table id="order-listing" class="table table-bordered">
+                    <thead>
+                        <tr class="bg-primary text-white">
+
+
+
+                            <th class="text-center font-weight-bold">Id</th>
+                            <th class="text-center font-weight-bold">Descripción</th>
+                            <th class="text-center font-weight-bold">Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Empresa in Model)
+                        {
+                            <tr>
+
+                                <td class="text-center">@Empresa.IdEmpresa</td>
+
+                                <td class="text-center">
+                                    @Empresa.DescripcionEmpresa
+                                </td>
+
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+
+                                        <span data-target="#btn_modificar" data-toggle="tooltip"
+                                              data-placement="bottom" data-original-title="Modificar">
+                                            <button class="btn btn-outline-secondary p-3"
+                                                    data-toggle="modal" data-target="#modal-modificar" data-backdrop="static"
+                                                    data-keyboard="false" id="btn_modificar" data-id="@Empresa.IdEmpresa" data-descripcion="@Empresa.DescripcionEmpresa">
+                                                <i class="mdi mdi-pencil mdi-18px"></i>
+
+                                            </button>
+                                        </span>
+
+
+                                        <span data-target="#btn_eliminar" data-toggle="tooltip"
+                                              data-placement="bottom" data-original-title="Eliminar">
+                                            <button type="button" class="btn btn-outline-secondary p-3"
+                                                    data-toggle="modal" data-target="#modal-eliminar" data-backdrop="static"
+                                                    data-keyboard="false" id="btn_eliminar" data-id="@Empresa.IdEmpresa">
+                                                <i class="mdi mdi-delete mdi-18px"></i>
+
+                                            </button>
+                                        </span>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL AGREGAR Empresa -->
+<div class="modal fade" id="modal-empresa" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Empresa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Create", "Empresa", FormMethod.Post, new { id = "formAgregarEmpresa" }))
+            {
+
+
+                <div class="modal-body py-0">
+                    <div class="form-group">
+                        <label>Descripción del Empresa:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-worker text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Descripción" aria-label="Empresa" name="descripcionEmpresa" id="descripcionEmpresa">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success font-weight-bold">Guardar</button>
+                        <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--/MODAL AGREGAR Empresa-->
+<!-- MODAL MODIFICAR Empresa -->
+<div class="modal fade" id="modal-modificar" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modificar Empresa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Edit", "Empresa", FormMethod.Post, new { id = "formModificarEmpresa" }))
+            {
+
+
+                <div class="modal-body py-0">
+                    <input type="hidden" name="idEmpresa" id="idEmpresaModificar" />
+                    <div class="form-group">
+                        <label>Descripción del Empresa:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-worker text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Descripción" aria-label="Empresa" name="descripcionEmpresaModificar" id="descripcionEmpresaModificar">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success font-weight-bold">Guardar</button>
+                        <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--/MODAL MODIFICAR Empresa-->
+<!-- MODAL ELIMINAR Empresa -->
+<div class="modal fade" id="modal-eliminar" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        @using (Html.BeginForm("Delete", "Empresa", FormMethod.Post))
+        {
+            <input type="hidden" name="idEmpresa" id="idEmpresaEliminar" />
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminar Empresa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body pb-0">
+                    <h6>Esta seguro de eliminar este Empresa?</h6>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success font-weight-bold">Acceptar</button>
+                    <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!--/MODAL ELIMINAR Empresa-->
+
+<script src="~/Scripts/shared/form-validation.js"></script>
+
+@section scripts{
+
+
+
+
+    <!-- Script analisis respuesta cambio password -->
+    <script type="text/javascript">
+        // relleno de input modal modificar
+        $('#modal-modificar').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            // Extract info from data-* attributes
+            var id = button.data('id')
+            var descripcion = button.data('descripcion')
+
+            var modal = $(this)
+            modal.find('#idEmpresaModificar').val(id)
+            modal.find('#descripcionEmpresaModificar').val(descripcion)
+
+        })
+
+
+        $('#modal-eliminar').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            // Extract info from data-* attributes
+            var id = button.data('id')
+
+            var modal = $(this)
+            modal.find('#idEmpresaEliminar').val(id)
+
+        })
+
+
+    </script>
+
+}

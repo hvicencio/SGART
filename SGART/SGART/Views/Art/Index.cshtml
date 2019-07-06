@@ -1,0 +1,1091 @@
+﻿@model IEnumerable<SGART.Models.Art>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $('#linkArt').addClass("active");
+</script>
+
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <img src="~/images/header.PNG" class="img-fluid mb-4" />
+
+                <form id="example-form" action="#">
+                    <div>
+                        <h3>Antecedentes del trabajo a realizar</h3>
+                        <section>
+                            <nav aria-label="breadcrumb" class="mb-4">
+                                <ol class="breadcrumb bg-primary">
+                                    <li class="breadcrumb-item">
+                                        <a href="#">Paso 1</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="#">Antecedentes del trabajo</a>
+                                    </li>
+
+                                </ol>
+                            </nav>
+                            <div class="row">
+                                <div class="form-group col-6 col-md-6">
+                                    <label>Empresa:</label>
+                                    <select class="form-control form-control-lg" id="exampleFormControlSelect2">
+                                        <option>Seleccione</option>
+                                        <option>Finning</option>
+                                        <option>Komatsu</option>
+                                        <option>Insert Alta</option>
+                                        <option>Insert Baja</option>
+                                        <option>Agromancay</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-6 col-md-6">
+                                    <label>Fecha:</label>
+                                    <div id="datepicker-popup" class="input-group date datepicker">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-addon input-group-append border-left">
+                                            <span class="mdi mdi-calendar input-group-text"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6 col-md-6">
+                                    <label>Gerencia/Área:</label>
+                                    <select class="form-control form-control-lg" id="exampleFormControlSelect2">
+                                        <option>Seleccione</option>
+                                        <option>Mina</option>
+                                        <option>Chancado</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group col-3 col-md-3">
+                                    <label>Hora Inicio:</label>
+                                    <div class="input-group date" id="timepicker-example" data-target-input="nearest">
+                                        <div class="input-group" data-target="#timepicker-example" data-toggle="datetimepicker">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#timepicker-example" />
+                                            <div class="input-group-addon input-group-append">
+                                                <i class="mdi mdi-clock input-group-text"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-3 col-md-3">
+                                    <label>Hora Termino:</label>
+                                    <div class="input-group date" id="timepicker-example2" data-target-input="nearest">
+                                        <div class="input-group" data-target="#timepicker-example2" data-toggle="datetimepicker">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#timepicker-example2" />
+                                            <div class="input-group-addon input-group-append">
+                                                <i class="mdi mdi-clock input-group-text"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6 col-md-6">
+                                    <label>Suptcia/Dir:</label>
+                                    <select class="form-control form-control-lg" id="exampleFormControlSelect2">
+                                        <option>Seleccione</option>
+                                        <option>Opcion 1</option>
+                                        <option>Opcion 2</option>
+                                        <option>Opcion 3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-6 col-md-6">
+                                    <label>Lugar:</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Lugar">
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="form-group col-12 col-md-12">
+                                    <label>Actividad a realizar:</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Actividad">
+                                </div>
+                            </div>
+                        </section>
+                        <h3>Análisis de riesgo</h3>
+                        <section>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb bg-primary">
+                                    <li class="breadcrumb-item">
+                                        <a href="#">Paso 2</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="#">Análisis de riesgo</a>
+                                    </li>
+
+                                </ol>
+                            </nav>
+
+                            <!--pregunta 1-->
+                            <div class="row">
+                                <nav aria-label="breadcrumb" class="col-10">
+                                    <ol class="breadcrumb bg-inverse-primary">
+                                        <li class="breadcrumb-item">
+                                            <div class="badge badge-pill badge-primary font-weight-bold">1</div>
+                                            <span class="d-inline-block pl-3 font-weight-bold">¿Me encuentro en condiciones fÍsicas y psicológicas aptas para realizar la tarea?</span>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                                <nav aria-label="breadcrumb" class="col-2">
+                                    <ol class="breadcrumb bg-inverse-primary pb-0">
+                                        <li class="breadcrumb-item">
+                                            <div class="icheck-square d-inline-block">
+                                                <input tabindex="7" type="radio" id="pregunta-1-si" name="pregunta-1" checked>
+                                                <label for="pregunta-1-si" class="mb-0">SI</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-1-no" name="pregunta-1">
+                                                <label for="pregunta-1-no" class="mb-0">NO</label>
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                            </div>
+
+
+                            <!--pregunta 2-->
+                            <div class="row">
+                                <nav aria-label="breadcrumb" class="col-10">
+                                    <ol class="breadcrumb bg-inverse-primary">
+                                        <li class="breadcrumb-item">
+                                            <div class="badge badge-pill badge-primary font-weight-bold">2</div>
+                                            <span class="d-inline-block pl-3 font-weight-bold">¿Cuento con las autorizaciones de ingreso al área?</span>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                                <nav aria-label="breadcrumb" class="col-2">
+                                    <ol class="breadcrumb bg-inverse-primary pb-0">
+                                        <li class="breadcrumb-item">
+                                            <div class="icheck-square d-inline-block">
+                                                <input tabindex="7" type="radio" id="pregunta-2-si" name="pregunta-2" checked>
+                                                <label for="pregunta-2-si" class="mb-0">SI</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-2-no" name="pregunta-2">
+                                                <label for="pregunta-2-no" class="mb-0">NO</label>
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                            </div>
+
+
+                            <!--pregunta 3-->
+                            <div class="row">
+                                <nav aria-label="breadcrumb" class="col-10">
+                                    <ol class="breadcrumb bg-inverse-primary">
+                                        <li class="breadcrumb-item">
+                                            <div class="badge badge-pill badge-primary font-weight-bold">3</div>
+                                            <span class="d-inline-block pl-3 font-weight-bold">
+                                                ¿Cuento con las coordinaciones necesarias para trabajos simultáneos?
+                                                <span class="d-inline-block pl-3 font-weight-bold text-danger"><i class="mdi mdi-alert mr-2 text-warning"></i>Realizar un análisis de riesgos cruzado en caso de un “NO”</span>
+                                            </span>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                                <nav aria-label="breadcrumb" class="col-2">
+                                    <ol class="breadcrumb bg-inverse-primary pb-0">
+                                        <li class="breadcrumb-item">
+                                            <div class="icheck-square d-inline-block">
+                                                <input tabindex="7" type="radio" id="pregunta-3-si" name="pregunta-3" checked>
+                                                <label for="pregunta-3-si" class="mb-0">SI</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-3-no" name="pregunta-3">
+                                                <label for="pregunta-3-no" class="mb-0">NO</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-3-na" name="pregunta-3">
+                                                <label for="pregunta-3-na" class="mb-0">NA</label>
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                            </div>
+
+
+                            <!--pregunta 4-->
+                            <div class="row">
+                                <nav aria-label="breadcrumb" class="col-10">
+                                    <ol class="breadcrumb bg-inverse-primary">
+                                        <li class="breadcrumb-item">
+                                            <div class="badge badge-pill badge-primary font-weight-bold">4</div>
+                                            <span class="d-inline-block pl-3 font-weight-bold">¿Dispongo de todos los elementos de protección personal para realizar correctamente la tarea?</span>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                                <nav aria-label="breadcrumb" class="col-2">
+                                    <ol class="breadcrumb bg-inverse-primary pb-0">
+                                        <li class="breadcrumb-item">
+                                            <div class="icheck-square d-inline-block">
+                                                <input tabindex="7" type="radio" id="pregunta-4-si" name="pregunta-4" checked>
+                                                <label for="pregunta-4-si" class="mb-0">SI</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-4-no" name="pregunta-4">
+                                                <label for="pregunta-4-no" class="mb-0">NO</label>
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                            </div>
+
+
+
+                            <!--pregunta 5-->
+                            <div class="row">
+                                <nav aria-label="breadcrumb" class="col-10">
+                                    <ol class="breadcrumb bg-inverse-primary">
+                                        <li class="breadcrumb-item">
+                                            <div class="badge badge-pill badge-primary font-weight-bold">5</div>
+                                            <span class="d-inline-block pl-3 font-weight-bold">
+                                                ¿Dispongo de equipo(s) y herramientas necesarias para la tarea, en buen estado y con su inspección al día?
+                                                segun código de color.
+                                            </span>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                                <nav aria-label="breadcrumb" class="col-2">
+                                    <ol class="breadcrumb bg-inverse-primary pb-0">
+                                        <li class="breadcrumb-item">
+                                            <div class="icheck-square d-inline-block">
+                                                <input tabindex="7" type="radio" id="pregunta-5-si" name="pregunta-5" checked>
+                                                <label for="pregunta-5-si" class="mb-0">SI</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-5-no" name="pregunta-5">
+                                                <label for="pregunta-5-no" class="mb-0">NO</label>
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                            </div>
+
+
+                            <!--pregunta 6-->
+                            <div class="row">
+                                <nav aria-label="breadcrumb" class="col-10">
+                                    <ol class="breadcrumb bg-inverse-primary">
+                                        <li class="breadcrumb-item">
+                                            <div class="badge badge-pill badge-primary font-weight-bold">6</div>
+                                            <span class="d-inline-block pl-3 font-weight-bold">
+                                                ¿Para realizar correctamente su trabajo/tarea, existe un procedimiento o instructivo de trabajo? ¿Cuál?
+                                            </span>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                                <nav aria-label="breadcrumb" class="col-2">
+                                    <ol class="breadcrumb bg-inverse-primary pb-0">
+                                        <li class="breadcrumb-item">
+                                            <div class="icheck-square d-inline-block">
+                                                <input tabindex="7" type="radio" id="pregunta-6-si" name="pregunta-6" checked>
+                                                <label for="pregunta-6-si" class="mb-0">SI</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-6-no" name="pregunta-6">
+                                                <label for="pregunta-6-no" class="mb-0">NO</label>
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                            </div>
+
+
+                            <!--pregunta 7-->
+                            <div class="row">
+                                <nav aria-label="breadcrumb" class="col-10">
+                                    <ol class="breadcrumb bg-inverse-primary">
+                                        <li class="breadcrumb-item">
+                                            <div class="badge badge-pill badge-primary font-weight-bold">7</div>
+                                            <span class="d-inline-block pl-3 font-weight-bold">
+                                                ¿He sido capacitado(a) y/o instruido(a) para realizar correctamente la tarea?
+                                            </span>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                                <nav aria-label="breadcrumb" class="col-2">
+                                    <ol class="breadcrumb bg-inverse-primary pb-0">
+                                        <li class="breadcrumb-item">
+                                            <div class="icheck-square d-inline-block">
+                                                <input tabindex="7" type="radio" id="pregunta-7-si" name="pregunta-7" checked>
+                                                <label for="pregunta-7-si" class="mb-0">SI</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-7-no" name="pregunta-7">
+                                                <label for="pregunta-7-no" class="mb-0">NO</label>
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                            </div>
+
+
+
+                            <!--pregunta 8-->
+                            <div class="row">
+                                <nav aria-label="breadcrumb" class="col-10">
+                                    <ol class="breadcrumb bg-inverse-primary">
+                                        <li class="breadcrumb-item">
+                                            <div class="badge badge-pill badge-primary font-weight-bold">8</div>
+                                            <span class="d-inline-block pl-3 font-weight-bold">
+                                                ¿Conozco el plan de emergencia del área?
+                                            </span>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                                <nav aria-label="breadcrumb" class="col-2">
+                                    <ol class="breadcrumb bg-inverse-primary pb-0">
+                                        <li class="breadcrumb-item">
+                                            <div class="icheck-square d-inline-block">
+                                                <input tabindex="7" type="radio" id="pregunta-8-si" name="pregunta-8" checked>
+                                                <label for="pregunta-8-si" class="mb-0">SI</label>
+                                            </div>
+                                            <div class="icheck-square d-inline-block pl-2">
+                                                <input tabindex="8" type="radio" id="pregunta-8-no" name="pregunta-8">
+                                                <label for="pregunta-8-no" class="mb-0">NO</label>
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </nav>
+                            </div>
+
+                            <div>
+
+
+
+
+
+
+                            </div>
+
+
+
+                            <div class="form-inline repeater">
+                                <div class="col-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb bg-primary row">
+
+                                            <li class="breadcrumb-item col-4 col-md-4 col-sm-4">
+                                                <span>Secuencia de la actividad paso a paso</span>
+                                            </li>
+                                            <li class="breadcrumb-item col-4 col-md-4 col-sm-4">
+                                                <span>Identifique los riesgos</span>
+                                            </li>
+                                            <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                <span>Indique las medidas de control (controles)</span>
+                                            </li>
+                                            <li class="breadcrumb-item col-1 col-md-1 col-sm-1">
+                                                <button data-repeater-create type="button" class="btn btn-success icon-btn float-right">
+                                                    <i class="mdi mdi-plus"></i>
+                                                </button>
+                                            </li>
+
+                                        </ol>
+                                    </nav>
+
+                                </div>
+
+                                <div style="width:100%">
+
+                                    <div data-repeater-list="group-a">
+                                        <div data-repeater-item class="d-flex mb-2 row">
+
+                                            <div class="input-group col-4">
+
+                                                <textarea type="text" class="form-control form-control" id="actividad" name="actividad" placeholder="Actividad"></textarea>
+                                            </div>
+
+                                            <div class="input-group col-4">
+
+                                                <textarea type="text" class="form-control form-control" id="riesgo" name="riesgo" placeholder="Riesgo"></textarea>
+                                            </div>
+                                            <div class="input-group col-3">
+
+                                                <textarea type="text" class="form-control form-control" id="control" name="control" placeholder="Control"></textarea>
+                                            </div>
+                                            <div class="col-1 align-self-center">
+                                                <button data-repeater-delete type="button" class="btn btn-danger icon-btn btn-lg">
+                                                    <i class="mdi mdi-delete"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+                        </section>
+                        <h3>Evaluación de la tarea</h3>
+                        <section>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb bg-primary">
+                                    <li class="breadcrumb-item">
+                                        <span>Paso 3</span>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <span>Evaluación de la tarea</span>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <span>Seleccione las Reglas que Salvan la Vida que aplican</span>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <i class="mdi mdi-alert-circle mr-2 text-warning"><span class="text-white">Si se identifica alguna de las reglas que Salvan la Vida, debe continuar con el paso 4</span></i>
+
+                                    </li>
+                                </ol>
+                            </nav>
+                            <div class="row">
+                                <!--Regla 1-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">INTERVENCIÓN EQUIPO ENERGIZADO</span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-1">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/r1.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+                                <!--Regla 2-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">CAIDA DISTINTO NIVEL</span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-2">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p2.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 3-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">EXPOSICIÓN A CARGAS SUSPENDIDAS</span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-3">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p3.PNG" class="img-fluid" />
+
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <!--Regla 4-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        CONTACTO CON ENERGÍAS PELIGROSAS
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-4">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p4.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+                                <!--Regla 5-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        CAÍDA DE ROCAS
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-5">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p5.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+                                <!--Regla 6-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        INCENDIO
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-6">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p6.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+                                <!--Regla 7-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        CONTACTO CON ÁCIDO SULFÚRICO
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-7">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p7.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+                                <!--Regla 8-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        EXPOSICIÓN A EXPLOSIVOS
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-8">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p8.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 9-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        ATRAPAMIENTO CON PARTES /
+                                                        PIEZAS MÓVILES
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-9">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p9.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 10-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        CONDUCCIÓN SEGURA
+                                                        DE VEHÍCULOS O EQUIPOS
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-10">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p10.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 11-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        EXPOSICIÓN A ATMÓSFERAS
+                                                        PELIGROSAS
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-11">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p11.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 12-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        CONTACTO O RADIACIÓN CON MATERIAL
+                                                        FUNDIDO
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-12">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p12.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 13-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        CAIDA DE OBJETOS DESDE DISTINTO NIVEL
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-13">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p13.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 14-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        OPERACIONES FERROVIARIAS
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-14">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p14.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 16-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        CAÍDA A PIQUE
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-16">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p16.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+                                <!--Regla 18-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        ATRAPAMIENTO POR CAÍDA DE ROCA
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-18">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p18.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+                                <!--Regla 20-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        EXPOSICIÓN A POLVO CON
+                                                        CONTENIDO SÍLICE
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-20">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p20.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                <!--Regla 21-->
+                                <div class="col-4">
+
+                                    <div class="mb-2 col-12">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb bg-danger row mb-0">
+
+                                                <li class="breadcrumb-item col-3 col-md-3 col-sm-3">
+                                                    <span class="font-weight-bold" style="font-size:12px;">PELIGRO</span>
+                                                </li>
+                                                <li class="breadcrumb-item col-8 col-md-8 col-sm-8">
+                                                    <span class="font-weight-bold" style="font-size:12px;">
+                                                        EXPOSICIÓN A ARSÉNICO INORGÁNICO
+                                                    </span>
+                                                </li>
+                                                <div class="icheck-flat d-inline-block col-1">
+                                                    <input tabindex="5" type="checkbox" id="peligro-21">
+                                                </div>
+
+                                            </ol>
+                                        </nav>
+
+
+
+                                    </div>
+
+                                    <div class="shadow-sm p-3 mb-2 bg-white rounded col-12">
+                                        <img src="~/images/p21.PNG" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+
+                                
+
+                            </div>
+                        </section>
+                        <h3>Aplicación de controles criticos</h3>
+                        <section>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb bg-primary">
+                                    <li class="breadcrumb-item">
+                                        <a href="#">Paso 4</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="#">Aplicación de controles criticos</a>
+                                    </li>
+
+                                </ol>
+                            </nav>
+                        </section>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="~/Scripts/shared/wizard.js"></script>
+
+<script src="~/Scripts/shared/formpickers.js"></script>
+<script src="~/Scripts/shared/iCheck.js"></script>
+<script src="~/Scripts/shared/form-repeater.js"></script>

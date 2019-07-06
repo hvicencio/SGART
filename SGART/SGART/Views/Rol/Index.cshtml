@@ -1,0 +1,219 @@
+﻿@model IEnumerable<SGART.Models.Rol>
+
+<script type="text/javascript">
+    $('#linkRoles').addClass("active");
+</script>
+<div class="card ">
+    <div class="card-body">
+        <h5 class="pb-2 text-primary font-weight-bold d-inline-block col-11">Gestión Tabla Maestra Roles</h5>
+        <button type="button" class="btn btn-icons btn-rounded btn-primary col-1 float-right" data-toggle="modal" data-target="#modal-rol" data-backdrop="static"
+                data-keyboard="false">
+            <i class="mdi mdi-plus"></i>
+        </button>
+        <div class="row align-items-center">
+
+
+
+
+            <div class="col-12 table-responsive mt-4">
+                <table id="order-listing" class="table table-bordered">
+                    <thead>
+                        <tr class="bg-primary text-white">
+
+
+
+                            <th class="text-center font-weight-bold">Id</th>
+                            <th class="text-center font-weight-bold">Descripción</th>
+                            <th class="text-center font-weight-bold">Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Rol in Model)
+                        {
+                            <tr>
+
+                                <td class="text-center">@Rol.IdRol</td>
+
+                                <td class="text-center">
+                                    @Rol.DescripcionRol
+                                </td>
+
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+
+                                        <span data-target="#btn_modificar" data-toggle="tooltip"
+                                              data-placement="bottom" data-original-title="Modificar">
+                                            <button class="btn btn-outline-secondary p-3"
+                                                    data-toggle="modal" data-target="#modal-modificar" data-backdrop="static"
+                                                    data-keyboard="false" id="btn_modificar" data-id="@Rol.IdRol" data-descripcion="@Rol.DescripcionRol">
+                                                <i class="mdi mdi-pencil mdi-18px"></i>
+
+                                            </button>
+                                        </span>
+
+
+                                        <span data-target="#btn_eliminar" data-toggle="tooltip"
+                                              data-placement="bottom" data-original-title="Eliminar">
+                                            <button type="button" class="btn btn-outline-secondary p-3"
+                                                    data-toggle="modal" data-target="#modal-eliminar" data-backdrop="static"
+                                                    data-keyboard="false" id="btn_eliminar" data-id="@Rol.IdRol">
+                                                <i class="mdi mdi-delete mdi-18px"></i>
+
+                                            </button>
+                                        </span>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL AGREGAR Rol -->
+<div class="modal fade" id="modal-rol" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Create", "Rol", FormMethod.Post, new { id = "formAgregarRol" }))
+            {
+
+
+                <div class="modal-body py-0">
+                    <div class="form-group">
+                        <label>Descripción del Rol:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-worker text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Descripción" aria-label="Rol" name="descripcionRol" id="descripcionRol">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success font-weight-bold">Guardar</button>
+                        <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--/MODAL AGREGAR Rol-->
+<!-- MODAL MODIFICAR Rol -->
+<div class="modal fade" id="modal-modificar" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modificar Rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Edit", "Rol", FormMethod.Post, new { id = "formModificarRol" }))
+            {
+
+
+                <div class="modal-body py-0">
+                    <input type="hidden" name="idRol" id="idRolModificar" />
+                    <div class="form-group">
+                        <label>Descripción del Rol:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-worker text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Descripción" aria-label="Rol" name="descripcionRolModificar" id="descripcionRolModificar">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success font-weight-bold">Guardar</button>
+                        <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--/MODAL MODIFICAR Rol-->
+<!-- MODAL ELIMINAR Rol -->
+<div class="modal fade" id="modal-eliminar" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        @using (Html.BeginForm("Delete", "Rol", FormMethod.Post))
+        {
+            <input type="hidden" name="idRol" id="idRolEliminar" />
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminar Rol</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body pb-0">
+                    <h6>Esta seguro de eliminar este Rol?</h6>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success font-weight-bold">Acceptar</button>
+                    <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!--/MODAL ELIMINAR Rol-->
+
+<script src="~/Scripts/shared/form-validation.js"></script>
+
+@section scripts{
+
+
+
+
+    <!-- Script analisis respuesta cambio password -->
+    <script type="text/javascript">
+        // relleno de input modal modificar
+        $('#modal-modificar').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            // Extract info from data-* attributes
+            var id = button.data('id')
+            var descripcion = button.data('descripcion')
+
+            var modal = $(this)
+            modal.find('#idRolModificar').val(id)
+            modal.find('#descripcionRolModificar').val(descripcion)
+
+        })
+
+
+        $('#modal-eliminar').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            // Extract info from data-* attributes
+            var id = button.data('id')
+
+            var modal = $(this)
+            modal.find('#idRolEliminar').val(id)
+
+        })
+
+
+    </script>
+
+}
+

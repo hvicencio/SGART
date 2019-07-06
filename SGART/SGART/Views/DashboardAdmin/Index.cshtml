@@ -1,0 +1,93 @@
+﻿@model SGART.Models.MyViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $('#linkDashboardAdmin').addClass("active");
+</script>
+
+
+<div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <i class="mdi mdi-account-star text-danger icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right font-weight-bold">Total Empleados</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0">@Model.Empleados.Count()</h3>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-clock mr-1" aria-hidden="true"></i> Ultima actualización @DateTime.Now
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <i class="mdi mdi-worker text-warning icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right font-weight-bold">Total Cargos</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0">@Model.Cargos.Count()</h3>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-clock mr-1" aria-hidden="true"></i> Ultima actualización @DateTime.Now
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <i class="mdi mdi-account-card-details text-success icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right font-weight-bold">Total Roles</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0">@Model.Roles.Count()</h3>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-clock mr-1" aria-hidden="true"></i> Ultima actualización @DateTime.Now
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <i class="mdi mdi-bookmark text-info icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right font-weight-bold">Total Turnos</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0">@Model.Turnos.Count()</h3>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-clock mr-1" aria-hidden="true"></i> Ultima actualización @DateTime.Now
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

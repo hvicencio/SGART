@@ -1,0 +1,393 @@
+﻿@model IEnumerable<SGART.Models.Empleado>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+    $('#linkUsuarios').addClass("active");
+</script>
+<div class="card ">
+    <div class="card-body">
+        <h5 class="pb-2 text-primary font-weight-bold d-inline-block col-11">Gestión Tabla Maestra Usuario</h5>
+        <button type="button" class="btn btn-icons btn-rounded btn-primary col-1 float-right" data-toggle="modal" data-target="#modal-usuario" data-backdrop="static"
+                data-keyboard="false">
+            <i class="mdi mdi-account-plus"></i>
+        </button>
+        <div class="row align-items-center">
+
+
+
+
+            <div class="col-12 table-responsive mt-4">
+                <table id="order-listing" class="table table-bordered">
+                    <thead>
+                        <tr class="bg-primary text-white">
+
+
+
+                            <th class="text-center">Run</th>
+                            <th class="text-center">Nombre</th>
+                            <th class="text-center">Apellido</th>
+                            <th class="text-center">Usuario</th>
+                            <th class="text-center">Contraseña</th>
+                            <th class="text-center">Empresa</th>
+                            <th class="text-center">Cargo</th>
+                            <th class="text-center">Rol</th>
+                            <th class="text-center">Turno</th>
+                            <th class="text-center">Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var empleado in Model)
+                        {
+                        <tr>
+
+                            <td class="text-center">@empleado.Run</td>
+
+                            <td class="text-center">
+                                @empleado.Nombre
+                            </td>
+                            <td class="text-center">
+                                @empleado.Apellido
+                            </td>
+                            <td class="text-center">
+                                @empleado.Usuario
+                            </td>
+                            <td class="text-center">
+                                @empleado.Contrasena
+                            </td>
+                            <td class="text-center">
+                                @empleado.Empresa.DescripcionEmpresa
+                            </td>
+                            <td class="text-center">
+                                @empleado.Cargo.DescripcionCargo
+                            </td>
+                            <td class="text-center">
+                                @empleado.Rol.DescripcionRol
+                            </td>
+                            <td class="text-center">
+                                @empleado.Turno.DescripcionTurno
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+
+                                    <span data-target="#btn_modificar" data-toggle="tooltip"
+                                          data-placement="bottom" data-original-title="Modificar">
+                                        <button class="btn btn-outline-secondary p-3"
+                                                data-toggle="modal" data-target="#modal-modificar" data-backdrop="static"
+                                                data-keyboard="false" id="btn_modificar" data-run="@empleado.Run" data-nombre="@empleado.Nombre" data-apellido="@empleado.Apellido"
+                                                data-usuario="@empleado.Usuario" data-contrasena="@empleado.Contrasena" data-cargo="@empleado.Cargo.IdCargo"
+                                                data-rol="@empleado.Rol.IdRol" data-turno="@empleado.Turno.IdTurno" data-empresa="@empleado.Empresa.IdEmpresa">
+                                            <i class="mdi mdi-pencil mdi-18px"></i>
+
+                                        </button>
+                                    </span>
+
+
+                                    <span data-target="#btn_eliminar" data-toggle="tooltip"
+                                          data-placement="bottom" data-original-title="Eliminar">
+                                        <button type="button" class="btn btn-outline-secondary p-3"
+                                                data-toggle="modal" data-target="#modal-eliminar" data-backdrop="static"
+                                                data-keyboard="false" id="btn_eliminar" data-run="@empleado.Run">
+                                            <i class="mdi mdi-delete mdi-18px"></i>
+
+                                        </button>
+                                    </span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL AGREGAR USUARIO -->
+<div class="modal fade" id="modal-usuario" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Create", "Empleado", FormMethod.Post, new { id = "formAgregarUsuario" }))
+            {
+
+
+            <div class="modal-body py-0">
+                <div class="form-group">
+                    <label>Run:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend bg-primary border-primary">
+                            <span class="input-group-text bg-transparent">
+                                <i class="mdi mdi mdi-account-circle text-white"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Run ej: 170207610" aria-label="Run" name="run">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend bg-primary border-primary">
+                            <span class="input-group-text bg-transparent">
+                                <i class="mdi mdi mdi-account-circle text-white"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" name="nombre">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Apellido:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend bg-primary border-primary">
+                            <span class="input-group-text bg-transparent">
+                                <i class="mdi mdi mdi-account-circle text-white"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" name="apellido">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Cuenta de usuario:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend bg-primary border-primary">
+                            <span class="input-group-text bg-transparent">
+                                <i class="mdi mdi mdi-account text-white"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Cuenta de usuario" aria-label="Username" name="usuario">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend bg-primary border-primary">
+                            <span class="input-group-text bg-transparent">
+                                <i class="mdi mdi mdi-textbox-password text-white"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Password" aria-label="Password" name="contrasena">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Empresa:</label>
+                    <div class="input-group">
+                        @Html.DropDownList("IdEmpresa", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Rol:</label>
+                    <div class="input-group">
+                        @Html.DropDownList("IdRol", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Turno:</label>
+                    <div class="input-group">
+                        @Html.DropDownList("IdTurno", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Cargo:</label>
+                    <div class="input-group">
+                        @Html.DropDownList("Idcargo", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success font-weight-bold">Guardar</button>
+                    <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+<!--/MODAL AGREGAR USUARIO-->
+<!-- MODAL MODIFICAR USUARIO -->
+<div class="modal fade" id="modal-modificar" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Edit", "Empleado", FormMethod.Post, new { id = "formModificarUsuario" }))
+            {
+
+               
+                <div class="modal-body py-0">
+                    <div class="form-group">
+                        <label>Run:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-account-circle text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Run ej: 170207610" aria-label="Run" name="run" id="runModificar">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-account-circle text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" name="nombre" id="nombreModificar">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Apellido:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-account-circle text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" name="apellido" id="apellidoModificar">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cuenta de usuario:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-account text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Cuenta de usuario" aria-label="Username" name="usuario" id="usuarioModificar">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent">
+                                    <i class="mdi mdi mdi-textbox-password text-white"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Password" aria-label="Password" name="contrasena" id="contrasenaModificar">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Empresa:</label>
+                        <div class="input-group">
+                            @Html.DropDownList("IdEmpresa", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Rol:</label>
+                        <div class="input-group">
+                            @Html.DropDownList("IdRol", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Turno:</label>
+                        <div class="input-group">
+                            @Html.DropDownList("IdTurno", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cargo:</label>
+                        <div class="input-group">
+                            @Html.DropDownList("Idcargo", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success font-weight-bold">Guardar</button>
+                        <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--/MODAL MODIFICAR USUARIO-->
+<!-- MODAL ELIMINAR CARGO -->
+<div class="modal fade" id="modal-eliminar" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        @using (Html.BeginForm("Delete", "Empleado", FormMethod.Post))
+        {
+            <input type="hidden" name="run" id="runEliminar" />
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminar Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body pb-0">
+                    <h6>Esta seguro de eliminar este usuario?</h6>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success font-weight-bold">Acceptar</button>
+                    <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!--/MODAL ELIMINAR CARGO-->
+<script src="~/Scripts/shared/form-validation.js"></script>
+
+@section scripts{
+
+
+
+
+    <!-- Script analisis respuesta cambio password -->
+    <script type="text/javascript">
+        // relleno de input modal modificar
+        $('#modal-modificar').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            // Extract info from data-* attributes
+            var run = button.data('run')
+            var nombre = button.data('nombre')
+            var apellido = button.data('apellido')
+            var usuario = button.data('usuario')
+            var contrasena = button.data('contrasena')
+            var idEmpresa = button.data('empresa')
+            var idTurno = button.data('turno')
+            var idRol = button.data('rol')
+            var idCargo = button.data('cargo')
+            var modal = $(this)
+            modal.find('#runModificar').val(run)
+            modal.find('#nombreModificar').val(nombre)
+            modal.find('#apellidoModificar').val(apellido)
+            modal.find('#usuarioModificar').val(usuario)
+            modal.find('#contrasenaModificar').val(contrasena)
+            modal.find('#IdEmpresa').val(idEmpresa)
+            modal.find('#IdTurno').val(idTurno)
+            modal.find('#Idcargo').val(idCargo)
+            modal.find('#IdRol').val(idRol)
+        })
+
+
+        $('#modal-eliminar').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            // Extract info from data-* attributes
+            var run = button.data('run')
+
+            var modal = $(this)
+            modal.find('#runEliminar').val(run)
+        })
+
+
+    </script>
+
+}
